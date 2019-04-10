@@ -6,12 +6,10 @@ import CrafteeMap from "./CrafteeMap.js";
 class App extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <NavBar />
-        <div>
-          <CrafteeMap />
-        </div>
-      </div>
+        <CrafteeMap />
+      </React.Fragment>
     );
   }
 }

@@ -32,3 +32,12 @@ nav li {
 .signup:hover {
   text-decoration: underline;
 }
+
+.test {
+  background-color: white;
+  border: white;
+  border-color: black;
+  border-radius: 5px;
+  padding: 30px;
+  margin-left: 5%;
+}
