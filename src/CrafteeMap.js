@@ -4,13 +4,35 @@ import { withGoogleMap, GoogleMap, withScriptjs } from "react-google-maps";
 const goog_key = process.env.REACT_APP_API_KEY_Craftee_Goog;
 
 class CrafteeMap extends React.Component {
+  state = {
+    lat: null,
+    lng: null
+  };
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const coords = pos.coords;
+      this.setState({
+        lat: coords.latitude,
+        lng: coords.longitude
+      });
+    });
+  }
   render() {
-    const CrafteeGoogle = withGoogleMap(props => (
-      <GoogleMap
-        defaultCenter={{ lat: 51.440739, lng: -0.122317 }}
-        defaultZoom={16}
-      />
-    ));
+    console.log(this.state.lat);
+    const CrafteeGoogle = withGoogleMap(props =>
+      this.state.lat ? (
+        <GoogleMap
+          defaultCenter={{
+            lat: this.state.lat,
+            lng: this.state.lng
+          }}
+          defaultZoom={16}
+        />
+      ) : (
+        "loading"
+      )
+    );
     return (
       <div
         className="test"
@@ -23,7 +45,7 @@ class CrafteeMap extends React.Component {
         }}
       >
         <CrafteeGoogle
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=&v=3.exp&libraries=geometry,drawing,places"
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqTR9nQU1aw5xuFLKjJCD0l7jJWgioRTk&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={
             <div

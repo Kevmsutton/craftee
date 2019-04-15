@@ -3,11 +3,14 @@ body {
 }
 
 nav {
-  width: 90%;
-  margin: 3%;
+  width: 100%;
+  margin: 0;
+  height: 100px;
+  padding-top: 20px;
   font-family: roboto;
   color: #e1ad01;
   font-weight: 900;
+  background-color: black;
 }
 
 nav ul {
@@ -34,6 +37,7 @@ nav li {
 }
 
 .test {
+  margin: 5%;
   background-color: white;
   border: white;
   border-color: black;
