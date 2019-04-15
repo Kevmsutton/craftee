@@ -45,7 +45,7 @@ class CrafteeMap extends React.Component {
         }}
       >
         <CrafteeGoogle
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqTR9nQU1aw5xuFLKjJCD0l7jJWgioRTk&v=3.exp&libraries=geometry,drawing,places"
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={
             <div
