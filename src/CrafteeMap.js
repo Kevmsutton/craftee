@@ -20,19 +20,15 @@ class CrafteeMap extends React.Component {
   }
   render() {
     console.log(this.state.lat);
-    const CrafteeGoogle = withGoogleMap(props =>
-      this.state.lat ? (
-        <GoogleMap
-          defaultCenter={{
-            lat: this.state.lat,
-            lng: this.state.lng
-          }}
-          defaultZoom={16}
-        />
-      ) : (
-        "loading"
-      )
-    );
+    const CrafteeGoogle = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter={{
+          lat: this.state.lat,
+          lng: this.state.lng
+        }}
+        defaultZoom={16}
+      />
+    ));
     return (
       <div
         className="test"
@@ -44,18 +40,22 @@ class CrafteeMap extends React.Component {
           justifyContent: "center"
         }}
       >
-        <CrafteeGoogle
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=&v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={
-            <div
-              style={{
-                width: "100%"
-              }}
-            />
-          }
-          mapElement={<div style={{ height: `100%` }} />}
-        />
+        {!this.state.lat ? (
+          <h3>Loading...</h3>
+        ) : (
+          <CrafteeGoogle
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=&v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={
+              <div
+                style={{
+                  width: "100%"
+                }}
+              />
+            }
+            mapElement={<div style={{ height: `100%` }} />}
+          />
+        )}
       </div>
     );
   }
