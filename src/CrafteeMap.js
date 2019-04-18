@@ -1,5 +1,7 @@
 import React from "react";
 import { withGoogleMap, GoogleMap, withScriptjs } from "react-google-maps";
+import CrafteeMarker from "./CrafteeMarker.js";
+import { Marker } from "react-google-maps";
 
 const goog_key = process.env.REACT_APP_API_KEY_Craftee_Goog;
 
@@ -21,13 +23,17 @@ class CrafteeMap extends React.Component {
   render() {
     console.log(this.state.lat);
     const CrafteeGoogle = withGoogleMap(props => (
-      <GoogleMap
-        defaultCenter={{
-          lat: this.state.lat,
-          lng: this.state.lng
-        }}
-        defaultZoom={16}
-      />
+      <div>
+        <GoogleMap
+          defaultCenter={{
+            lat: this.state.lat,
+            lng: this.state.lng
+          }}
+          defaultZoom={15}
+        />
+        <Marker position={{ lat: this.state.lat, lng: this.state.lng }} />
+        <CrafteeMarker />
+      </div>
     ));
     return (
       <div
